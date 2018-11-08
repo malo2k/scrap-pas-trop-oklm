@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cryptomonnaies</title>
+</head>
+
+<body>
+	<h1>Choisissez votre cryptomonnaie</h1>
+<div>
+	<%= form_for :cryptos do |f| %>
+	<div class="form-group">
+		<%= f.label "Crypto" %>
+		<%= select_tag "cryptos", options_for_select(@cryptos.keys.sort) %>
+		<%= f.submit "Valider", class: "btn btn-primary" %>
+	</div>
+	<% end %>
+
+	<% if @crypto %>
+	<div class="price">
+		<h3>Cette cryptomonnaie a le cours suivant : <%= @crypto %></h3>
+	</div>
+	<% end %>
+</div>
+</body>
+</html>
